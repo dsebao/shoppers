@@ -25,7 +25,7 @@ function add_scripts(){
 	wp_enqueue_style('owl-css', get_template_directory_uri() . "/css/owl.carousel.min.css");
 	wp_enqueue_style('owltheme-css', get_template_directory_uri() . "/css/owl.theme.default.min.css");
 	wp_enqueue_style('mainstyle-css', get_template_directory_uri() . "/css/style.css");
-	wp_enqueue_style('custom-css', get_template_directory_uri() . "/css/estilo.css");
+	//wp_enqueue_style('custom-css', get_template_directory_uri() . "/css/estilo.css");
 	
 
 	//Agregar Javascript
@@ -79,20 +79,6 @@ function disable_admin_bar() {
     }
     //add_filter('show_admin_bar', '__return_false');
 }
-//add_action( 'after_setup_theme', 'disable_admin_bar' );
- 
-/**
- * Redirect back to homepage and not allow access to
- * WP admin for Subscribers.
- */
-function redirect_admin(){
-    if ( ! defined('DOING_AJAX') && ! current_user_can('delete_users') ) {
-        wp_redirect( site_url() );
-        exit;      
-    }
-}
-add_action( 'admin_init', 'redirect_admin' );
-
 
 /*
 	Function to facility emails notifications in WP

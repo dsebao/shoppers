@@ -1,19 +1,26 @@
-const gulp = require('gulp');
-    sass = require('gulp-sass');
-    autoprefixer = require('gulp-autoprefixer');
+'use strict';
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var autoprefixer = require('autoprefixer');
+var postcss = require('gulp-postcss');
+var paths = {
+    styles: {
+        src: 'scss/**/*.scss',
+        dest: 'css'
+    }
+}
+function scss() {
+    return gulp.src(paths.styles.src)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(gulp.dest(paths.styles.dest));
+}
+exports.scss = scss
+function watch() {
 
-gulp.task('sass',function(){
-    return gulp.src('/scss/*.scss')
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }))
-        .pipe(autoprefixer({
-            versions: ['last 3 browsers']
-        }))
-        .pipe(gulp.dest('/css'));
-});
+    scss()
 
-gulp.task('default',function(){
-    return gulp.watch('./scss/*.scss',gulp.series('sass'));
-})
-
+    gulp.watch(paths.styles.src, scss);
+}
+exports.watch = watch

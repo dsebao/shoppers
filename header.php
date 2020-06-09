@@ -92,30 +92,7 @@
 				<div class="container">
 
 				<?php wp_nav_menu(array('container' => 'ul','menu_class' => 'site-menu js-clone-nav d-none d-md-block','walker' => new Nav_Footer_Walker()));?>
-
-<!-- 
-					<ul class="site-menu js-clone-nav d-none d-md-block">
-						<li class="has-children active">
-							<a href="<?php bloginfo('url');?>">Inicio</a>
-							<ul class="dropdown">
-								<li><a href="#">Menu One</a></li>
-								<li><a href="#">Menu Two</a></li>
-								<li><a href="#">Menu Three</a></li>
-								<li class="has-children">
-									<a href="#">Sub Menu</a>
-									<ul class="dropdown">
-										<li><a href="#">Menu One</a></li>
-										<li><a href="#">Menu Two</a></li>
-										<li><a href="#">Menu Three</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li><a href="<?php bloginfo('url');?>/tienda/">Catalogo</a></li>
-						<li><a href="#">Promos</a></li>
-						<li><a href="contact.html">Contacto</a></li>
-					</ul> -->
 				</div>
 			</nav>
 		</header>
-		<?php get_page_template();?>
+		

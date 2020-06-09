@@ -131,5 +131,6 @@ function inft_woocommerce_titulo_lista() {
 
 //add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
-
-
+add_action('woocommerce_before_single_product',function(){
+	echo "<div class='container mt-5'>";
+});
